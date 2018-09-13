@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+  - "10.1"
+cache: npm
+# safelist
+branches:
+  only:
+  - master
+after_success:
+  - echo "installing dependencies functions"
+  - npm install --prefix ./functions
+deploy:
+  provider: firebase
+  skip_cleanup: true
+  token:
+    secure: $FIREBASE_TOKEN
+  message: "deploying"
