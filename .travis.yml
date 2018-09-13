@@ -6,7 +6,7 @@ cache: npm
 branches:
   only:
   - master
-after_success:
+script:
   - echo "installing dependencies functions"
   - npm install --prefix ./functions
 deploy:
